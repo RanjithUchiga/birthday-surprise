@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#ffe6ef">
+  <title>Happy Birthday, My Favourite Person 💗</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --pink: #ff4f87;
+      --deep: #a71950;
+      --rose: #ffe2ec;
+      --paper: rgba(255,255,255,.82);
+      --ink: #57263b;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: "DM Sans", sans-serif;
+      color: var(--ink);
+      background: linear-gradient(145deg, #fff7fa, #ffe1ec 48%, #fff0f5);
+      overflow-x: hidden;
+    }
+    button { font: inherit; }
+    .floating-hearts { position: fixed; inset: 0; pointer-events: none; overflow: hidden; z-index: 0; }
+    .floating-hearts span {
+      position: absolute; bottom: -40px; color: #ff6e9b; opacity: .5;
+      animation: floatUp linear infinite;
+    }
+    @keyframes floatUp {
+      from { transform: translateY(0) rotate(0deg); opacity: 0; }
+      12% { opacity: .55; }
+      to { transform: translateY(-115vh) rotate(25deg); opacity: 0; }
+    }
+    .page { position: relative; z-index: 1; }
+    .hero {
+      min-height: 100svh; display: grid; place-items: center; text-align: center;
+      padding: 70px 20px 60px; position: relative; overflow: hidden;
+      background:
+        radial-gradient(ellipse at 15% 90%, rgba(255,122,166,.22), transparent 38%),
+        radial-gradient(ellipse at 85% 15%, rgba(255,183,207,.45), transparent 35%);
+    }
+    .hero-inner { max-width: 780px; }
+    .eyebrow { letter-spacing: .18em; text-transform: uppercase; font-size: .76rem; font-weight: 700; color: #c34d77; }
+    h1, h2, .script { font-family: "Great Vibes", cursive; font-weight: 400; }
+    h1 { color: var(--deep); font-size: clamp(3.5rem, 10vw, 7rem); line-height: 1.05; margin: 18px 0 4px; }
+    .subtitle { font-size: clamp(1.15rem, 3vw, 1.65rem); margin: 8px 0 18px; }
+    .hero-copy { max-width: 540px; margin: 0 auto 26px; line-height: 1.8; color: #75465a; }
+    .hero-heart { font-size: clamp(3rem, 9vw, 5.5rem); animation: heartbeat 1.5s ease-in-out infinite; display: inline-block; filter: drop-shadow(0 8px 12px #f6a3c1); }
+    @keyframes heartbeat { 0%,100% { transform: scale(1); } 15% { transform: scale(1.12); } 30% { transform: scale(1); } 45% { transform: scale(1.08); } }
+    .button {
+      display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+      border: 0; border-radius: 999px; padding: 14px 24px; color: white;
+      background: linear-gradient(135deg, #ff76a4, #ef3978); font-weight: 700;
+      box-shadow: 0 10px 25px rgba(219, 53, 112, .25); cursor: pointer;
+      transition: transform .2s, box-shadow .2s;
+    }
+    .button:hover { transform: translateY(-3px); box-shadow: 0 14px 30px rgba(219, 53, 112, .32); }
+    .scroll-note { margin-top: 40px; font-size: .8rem; color: #a45b78; }
+    section { padding: 74px 20px; }
+    .section-inner { max-width: 1000px; margin: 0 auto; }
+    .section-title { text-align: center; font-size: clamp(2.7rem, 7vw, 4.2rem); color: var(--deep); margin: 0 0 8px; }
+    .section-intro { text-align: center; max-width: 620px; margin: 0 auto 34px; line-height: 1.7; color: #81536a; }
+    .gallery { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+    .photo-card {
+      background: white; padding: 12px 12px 18px; border-radius: 8px;
+      box-shadow: 0 10px 28px rgba(145, 45, 84, .12);
+      transform: rotate(var(--tilt, -2deg)); transition: transform .25s;
+    }
+    .photo-card:nth-child(2n) { --tilt: 2deg; }
+    .photo-card:hover { transform: rotate(0) translateY(-5px); }
+    .photo-placeholder {
+      aspect-ratio: 4 / 3; display: grid; place-items: center; text-align: center;
+      border-radius: 5px; padding: 12px;
+      background: linear-gradient(135deg, #ffd5e4, #fff0f5 55%, #ffc4da);
+      color: #b34570; overflow: hidden; position: relative;
+    }
+    .photo-placeholder .emoji { font-size: 2.7rem; display: block; margin-bottom: 8px; }
+    .photo-placeholder small { display: block; font-size: .78rem; }
+    .photo-card p { text-align: center; margin: 13px 0 0; font-family: "Great Vibes", cursive; font-size: 1.8rem; color: #a72d5e; }
+    .hint { text-align: center; font-size: .85rem; color: #9a657c; margin-top: 24px; }
+    .letter-wrap { max-width: 740px; margin: 0 auto; padding: 12px; border-radius: 18px; background: rgba(255,255,255,.58); box-shadow: 0 18px 45px rgba(145,45,84,.10); }
+    .letter { background: #fffafc; border: 1px solid #ffd0df; border-radius: 12px; padding: clamp(24px, 6vw, 52px); text-align: center; line-height: 1.95; position: relative; }
+    .letter:before { content: "♡"; color: #ff79a5; font-size: 2rem; position: absolute; top: 12px; right: 20px; }
+    .letter h2 { font-size: clamp(2.6rem, 7vw, 4rem); color: var(--deep); margin: 4px 0 16px; }
+    .letter p { margin: 12px 0; }
+    .signature { font-family: "Great Vibes", cursive; font-size: 2rem; color: #c52f68; margin-top: 22px; }
+    .surprise-section { text-align: center; }
+    .envelope { font-size: 4.8rem; margin-bottom: 10px; animation: bob 2.4s ease-in-out infinite; }
+    @keyframes bob { 50% { transform: translateY(-9px); } }
+    .secret-message {
+      max-width: 680px; margin: 26px auto 0; padding: 0 24px; max-height: 0; overflow: hidden;
+      opacity: 0; background: rgba(255,255,255,.88); border: 1px solid transparent; border-radius: 18px;
+      line-height: 1.9; transition: max-height .8s ease, opacity .5s ease, padding .5s ease;
+    }
+    .secret-message.open { max-height: 800px; opacity: 1; padding: 28px 24px; border-color: #ffc3d8; }
+    .secret-message h3 { font-family: "Great Vibes", cursive; font-size: 2.8rem; font-weight: 400; color: var(--deep); margin: 0 0 10px; }
+    .future-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+    .future-item { text-align: center; background: var(--paper); border: 1px solid #ffd2e0; border-radius: 16px; padding: 22px 12px; }
+    .future-item span { display: block; font-size: 1.8rem; margin-bottom: 10px; }
+    .future-item strong { font-size: .95rem; }
+    footer { text-align: center; padding: 35px 20px 55px; color: #9a5b76; font-size: .9rem; }
+    footer .script { color: var(--deep); font-size: 2.5rem; display: block; }
+    .confetti { position: fixed; z-index: 20; top: -20px; pointer-events: none; animation: fall 3.2s linear forwards; }
+    @keyframes fall { to { transform: translateY(110vh) rotate(650deg); opacity: .15; } }
+    @media (max-width: 700px) {
+      .gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+      .future-grid { grid-template-columns: repeat(2, 1fr); }
+      section { padding: 58px 16px; }
+    }
+    @media (max-width: 390px) {
+      .gallery { grid-template-columns: 1fr; }
+      .photo-card { max-width: 340px; width: 100%; margin: 0 auto; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="floating-hearts" id="floatingHearts" aria-hidden="true"></div>
+  <main class="page">
+    <header class="hero" id="top">
+      <div class="hero-inner">
+        <div class="eyebrow">A little something made with love</div>
+        <div class="hero-heart" aria-hidden="true">💗</div>
+        <h1>Happy Birthday</h1>
+        <p class="subtitle">To my favourite person <span aria-hidden="true">♡</span></p>
+        <p class="hero-copy">Today is all about you — your smile, your beautiful heart, and all the little things that make you so special to me.</p>
+        <button class="button" onclick="document.getElementById('memories').scrollIntoView({behavior:'smooth'})">Explore your surprise <span>♥</span></button>
+        <div class="scroll-note">Made with love, one line of code at a time ↓</div>
+      </div>
+    </header>
+
+    <section id="memories">
+      <div class="section-inner">
+        <h2 class="section-title">Our Little Memories</h2>
+        <p class="section-intro">A few little spaces for the moments I never want to forget. Replace these placeholders with your own photos.</p>
+        <div class="gallery">
+          <article class="photo-card">
+            <div class="photo-placeholder"><div><span class="emoji">📸</span><strong>Our first memory</strong><small>Replace with your photo</small></div></div>
+            <p>One to remember ♡</p>
+          </article>
+          <article class="photo-card">
+            <div class="photo-placeholder"><div><span class="emoji">🌷</span><strong>Your beautiful smile</strong><small>Replace with your photo</small></div></div>
+            <p>My favourite view</p>
+          </article>
+          <article class="photo-card">
+            <div class="photo-placeholder"><div><span class="emoji">🌅</span><strong>A happy day</strong><small>Replace with your photo</small></div></div>
+            <p>Pure happiness ♡</p>
+          </article>
+          <article class="photo-card">
+            <div class="photo-placeholder"><div><span class="emoji">🎀</span><strong>A silly moment</strong><small>Replace with your photo</small></div></div>
+            <p>Us being us</p>
+          </article>
+          <article class="photo-card">
+            <div class="photo-placeholder"><div><span class="emoji">🌙</span><strong>A special moment</strong><small>Replace with your photo</small></div></div>
+            <p>Close to my heart</p>
+          </article>
+          <article class="photo-card">
+            <div class="photo-placeholder"><div><span class="emoji">💞</span><strong>More memories soon</strong><small>Replace with your photo</small></div></div>
+            <p>To many more</p>
+          </article>
+        </div>
+        <p class="hint">Tip: You can add real photos later by replacing each placeholder with an image tag.</p>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-inner">
+        <h2 class="section-title">A Note For You</h2>
+        <p class="section-intro">Not the fanciest gift in the world — just something I made especially for you.</p>
+        <div class="letter-wrap">
+          <div class="letter">
+            <h2>Happy Birthday, My Love</h2>
+            <p>Every day feels a little brighter because you're in my life.</p>
+            <p>Thank you for the smiles, the laughs, the little moments, and for being exactly who you are. I hope this new year of your life brings you peace, happiness, beautiful surprises, and everything your heart wishes for.</p>
+            <p>I may be a developer, but there's no code that can fully explain how special you are to me. So I made this little page instead — with care, a few hearts, and lots of love.</p>
+            <p>Keep smiling, keep shining, and never forget how loved you are. 💗</p>
+            <div class="signature">With all my love,<br>Your Developer ♡</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="surprise-section" id="surprise">
+      <div class="section-inner">
+        <div class="envelope" aria-hidden="true">💌</div>
+        <h2 class="section-title">One Last Little Surprise</h2>
+        <p class="section-intro">There's one more message, saved just for you. Ready?</p>
+        <button class="button" id="revealButton" onclick="revealMessage()">Open your message 💗</button>
+        <div class="secret-message" id="secretMessage" aria-live="polite">
+          <h3>Hey, birthday girl… ♡</h3>
+          <p>If I could give you one thing today, it would be the chance to see yourself through my eyes — so you could understand how wonderful you are.</p>
+          <p>I hope today gives you a hundred reasons to smile. Whatever comes next, I’m cheering for you and wishing you the happiest, loveliest year ahead.</p>
+          <p><strong>Happy Birthday, my favourite person. You deserve so much happiness. ❤️</strong></p>
+          <p class="signature">Always wishing you the best ♡</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-inner">
+        <h2 class="section-title">More Beautiful Days Ahead</h2>
+        <p class="section-intro">Here’s to more little things worth celebrating.</p>
+        <div class="future-grid">
+          <div class="future-item"><span>🎂</span><strong>More birthdays</strong></div>
+          <div class="future-item"><span>🌍</span><strong>New adventures</strong></div>
+          <div class="future-item"><span>📷</span><strong>More memories</strong></div>
+          <div class="future-item"><span>💗</span><strong>More reasons to smile</strong></div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <span class="script">Thank you for being you ♡</span>
+      A tiny website, made with a big heart.
+      <div style="margin-top:12px">© <span id="year"></span> · Built with HTML, CSS & JavaScript</div>
+    </footer>
+  </main>
+
+  <script>
+    // Floating hearts in the background
+    const heartsContainer = document.getElementById("floatingHearts");
+    const heartSymbols = ["♡", "♥", "💕", "💗"];
+    for (let i = 0; i < 22; i++) {
+      const heart = document.createElement("span");
+      heart.textContent = heartSymbols[Math.floor(Math.random() * heartSymbols.length)];
+      heart.style.left = Math.random() * 100 + "%";
+      heart.style.fontSize = (12 + Math.random() * 22) + "px";
+      heart.style.animationDuration = (9 + Math.random() * 12) + "s";
+      heart.style.animationDelay = (-Math.random() * 18) + "s";
+      heartsContainer.appendChild(heart);
+    }
+
+    // Reveal the private birthday message and launch a little confetti.
+    function revealMessage() {
+      const message = document.getElementById("secretMessage");
+      const button = document.getElementById("revealButton");
+      message.classList.add("open");
+      button.textContent = "Surprise opened 💖";
+      button.disabled = true;
+      button.style.opacity = ".8";
+      launchConfetti();
+      message.scrollIntoView({ behavior: "smooth", block: "center" });
+    }
+
+    function launchConfetti() {
+      const pieces = ["💗", "💕", "✨", "♥", "🌸"];
+      for (let i = 0; i < 34; i++) {
+        const piece = document.createElement("span");
+        piece.className = "confetti";
+        piece.textContent = pieces[Math.floor(Math.random() * pieces.length)];
+        piece.style.left = Math.random() * 100 + "vw";
+        piece.style.fontSize = (14 + Math.random() * 18) + "px";
+        piece.style.animationDelay = (Math.random() * .8) + "s";
+        document.body.appendChild(piece);
+        setTimeout(() => piece.remove(), 4200);
+      }
+    }
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
